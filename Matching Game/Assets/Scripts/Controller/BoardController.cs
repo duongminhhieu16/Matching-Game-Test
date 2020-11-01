@@ -120,7 +120,7 @@ public class BoardController : MonoBehaviour
         renderer2.sprite = temp;
 
 
-        SoundManager.Instance.PlaySound(SoundType.TypeMove);
+        //SoundManager.Instance.PlaySound(SoundType.TypeMove);
     }
     public bool CheckMatch()
     {
@@ -165,7 +165,7 @@ public class BoardController : MonoBehaviour
         }
         return check;
     }
-    List<SpriteRenderer> FindColumnMatchForTile(int col, int row, Sprite sprite)
+    public List<SpriteRenderer> FindColumnMatchForTile(int col, int row, Sprite sprite)
     {
         List<SpriteRenderer> result = new List<SpriteRenderer>();
         for (int i = col + 1; i < board.dimension; i++)
@@ -181,7 +181,7 @@ public class BoardController : MonoBehaviour
         return result;
     }
 
-    List<SpriteRenderer> FindRowMatchForTile(int col, int row, Sprite sprite)
+    public List<SpriteRenderer> FindRowMatchForTile(int col, int row, Sprite sprite)
     {
         List<SpriteRenderer> result = new List<SpriteRenderer>();
         for (int i = row + 1; i < board.dimension; i++)
