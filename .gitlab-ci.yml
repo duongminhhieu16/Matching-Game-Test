@@ -1,0 +1,19 @@
+stages:
+  - test
+  - build
+
+unit-test:
+  stage: test
+  script: "C:/'Program Files'/Unity/Hub/Editor/2019.4.7f1/Editor/Unity.exe \
+    -batchmode \
+    -projectPath ./'Matching Game' \
+    -runTests -testPlatform editmode \
+    -logFile \
+    -testResults ./unit-tests.xml"
+  tags:
+    - h
+unity-build:
+  stage: build
+  script: echo 'Building...'
+  tags:
+    - h
