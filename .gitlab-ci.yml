@@ -11,9 +11,9 @@ unit-test:
     -logFile \
     -testResults ./unit-tests.xml"
   tags:
-    - h
+    - unity
 unity-build:
   stage: build
   script: echo 'Building...'
   tags:
-    - h
+    - unity
