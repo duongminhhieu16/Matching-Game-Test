@@ -4,6 +4,7 @@ public class TileController : MonoBehaviour
 {
     
     public static TileController selected;
+    public Vector3 pos = new Vector3();
     private SpriteRenderer _renderer;
     private Vector2Int position;
     private float speed = 0.2f;
@@ -51,6 +52,7 @@ public class TileController : MonoBehaviour
         {
             fraction += speed;
             transform.position = Vector3.Lerp(prepos, pos, fraction);
+            pos = Vector3.Lerp(prepos, pos, fraction);
             if (fraction == 1) isRunning = false;
             yield return new WaitForSeconds(0.01f);
         }

@@ -22,16 +22,14 @@ public class GoogleController : MonoBehaviour
     private void Awake()
     {
         google = this;
-        GetStatus();
+       // GetStatus();
     }
     public void GetStatus()
     {
-        
         if (!FB.IsLoggedIn)
         {
             if (PlayerPrefs.GetInt("Google") == 1)
             {
-                Debug.Log("in");
                 DialogSignedIn.SetActive(true);
                 DialogSignedOut.SetActive(false);
                 DisplayUserName(true, null);
@@ -47,7 +45,6 @@ public class GoogleController : MonoBehaviour
         {
             DialogSignedIn.SetActive(false);
             DialogSignedOut.SetActive(false);
-            Debug.Log("hehehehehe");
         }
     }
     public void GoogleLogIn()

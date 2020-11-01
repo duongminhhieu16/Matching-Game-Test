@@ -14,15 +14,13 @@ public class FirebaseInit : MonoBehaviour
     public static User playerInfo;
     public static bool loaded = false;
     public static List<User> users = new List<User>();
-    
+
 
     // Start is called before the first frame update
-   
-    private async void Awake()
+    public void Init()
     {
-        firebaseInit = this;
-        if(reference != null)
-        {          
+        if (reference != null)
+        {
             return;
         }
         else
@@ -32,6 +30,11 @@ public class FirebaseInit : MonoBehaviour
             guestID = SystemInfo.deviceUniqueIdentifier;
         }
         GoogleController.auth = FirebaseAuth.DefaultInstance;
+    }
+    private async void Awake()
+    {
+        firebaseInit = this;
+        Init();
         await LoadDataOfCurrentPlayer();
     }
     public static FirebaseInit firebaseInit { get; private set; }
@@ -42,7 +45,7 @@ public class FirebaseInit : MonoBehaviour
         else if (PlayerPrefs.GetInt("Google") == 1) await CreateGooglePlayer();
         else await CreateGuestPlayer();
     }
-    private async Task CreateGuestPlayer()
+    public async Task CreateGuestPlayer()
     {
         
         await FirebaseDatabase.DefaultInstance.GetReference("users").Child(guestID)

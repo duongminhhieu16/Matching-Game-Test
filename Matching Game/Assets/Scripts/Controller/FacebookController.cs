@@ -19,6 +19,10 @@ public class FacebookController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Init();
+    }
+    public void Init()
+    {
         facebookController = this;
         if (!FB.IsLoggedIn && cnt == 0)
         {
